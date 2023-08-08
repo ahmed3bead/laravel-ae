@@ -28,6 +28,10 @@ class ExampleTest extends TestCase
         $response->assertJsonStructure([
             '*' => ['id', 'name', 'email']
         ]);
+        
+        $response->assertJson([
+            '*' => ['id' => 1, 'name' => 'John Doe', 'email' => 'john@example.com']
+        ]);
     }
 
     /**
@@ -40,6 +44,10 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonStructure([
             '*' => ['id', 'title', 'body', 'user_id']
+        ]);
+        
+        $response->assertJson([
+            '*' => ['id' => 1, 'title' => 'Post Title', 'body' => 'Post Body', 'user_id' => 1]
         ]);
     }
 }
