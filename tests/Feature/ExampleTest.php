@@ -22,12 +22,15 @@ class ExampleTest extends TestCase
      */
     public function test_successful_login(): void
     {
+        $user = factory(User::class)->create();
+
         $response = $this->post('/login', [
-            'email' => 'test@example.com',
+            'email' => $user->email,
             'password' => 'password',
         ]);
 
         $response->assertStatus(200);
+        $response->assertSeeText('Login successful');
     }
 
     /**
@@ -35,12 +38,15 @@ class ExampleTest extends TestCase
      */
     public function test_failed_login(): void
     {
+        $user = factory(User::class)->create();
+
         $response = $this->post('/login', [
-            'email' => 'test@example.com',
+            'email' => $user->email,
             'password' => 'wrong-password',
         ]);
 
         $response->assertStatus(401);
+        $response->assertSeeText('Login failed');
     }
 
     /**
