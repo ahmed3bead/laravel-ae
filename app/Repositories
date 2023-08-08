@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Repositories;
+
+interface UserRepositoryInterface
+{
+    /**
+     * Find a user by its primary key.
+     *
+     * @param  int  $id
+     * @return \App\Models\User
+     */
+    public function find(int $id);
+
+    /**
+     * Get all users.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getAll();
+
+    /**
+     * Create a new user.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    public function create(array $data);
+
+    /**
+     * Update a user.
+     *
+     * @param  \App\Models\User  $user
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    public function update(User $user, array $data);
+
+    /**
+     * Delete a user.
+     *
+     * @param  \App\Models\User  $user
+     * @return void
+     */
+    public function delete(User $user);
+}
