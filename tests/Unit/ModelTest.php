@@ -42,5 +42,27 @@ class UserTest extends TestCase
         $this->assertDatabaseMissing('users', ['email' => $user->email]);
     }
 
-    // Add more test methods for any business logic related to the User model.
+    /**
+     * Test custom methods on the User model.
+     */
+    public function test_custom_methods(): void
+    {
+        // Create a user
+        $user = User::factory()->create();
+    
+        // Call the custom method and assert the expected outcome
+        $this->assertTrue($user->customMethod());
+    }
+    
+    /**
+     * Test custom scopes on the User model.
+     */
+    public function test_custom_scopes(): void
+    {
+        // Create a user
+        $user = User::factory()->create();
+    
+        // Call the custom scope and assert the expected outcome
+        $this->assertEquals(1, User::customScope()->count());
+    }
 }
