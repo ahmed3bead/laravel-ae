@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\User;
+use App\Repositories\EloquentRepository;
+
+class UserRepository extends EloquentRepository implements UserRepositoryInterface
+{
+    public function create(array $data): User
+    {
+        // implementation
+    }
+
+    public function find(int $id): ?User
+    {
+        // implementation
+    }
+
+    public function update(User $user, array $data): bool
+    {
+        // implementation
+    }
+
+    public function delete(User $user): bool
+    {
+        // implementation
+    }
+}
